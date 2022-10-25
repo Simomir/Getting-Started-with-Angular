@@ -15,12 +15,9 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     ProductListComponent,
     ProductDetailComponent,
-    StarComponent,
     ConvertToSpacesPipe
   ],
   imports: [
-    CommonModule,
-    FormsModule,
     RouterModule.forChild([
       { path: 'products', component: ProductListComponent },
       {
