@@ -6,6 +6,7 @@ import { StarComponent } from "../shared/star.component";
 import { ConvertToSpacesPipe } from "../shared/convert-to-spaces.pipe";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
+import { ProductDetailGuard } from "./product-detail.guard";
 
 
 
@@ -19,7 +20,14 @@ import { RouterModule } from "@angular/router";
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule.forChild([
+      { path: 'products', component: ProductListComponent },
+      {
+        path: 'products/:id',
+        canActivate: [ProductDetailGuard],
+        component: ProductDetailComponent
+      },
+    ])
   ]
 })
 export class ProductModule { }
